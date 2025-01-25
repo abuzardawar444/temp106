@@ -56,7 +56,6 @@ export const createProductAction = async(prevState:any, formData:FormData): Prom
     try {
         const rawData = Object.fromEntries(formData);
         const validatedFields = validateWithZodSchema(productSchema, rawData);
-    
         await db.product.create({
           data: {
             ...validatedFields,
